@@ -1,0 +1,41 @@
+{% load static %}
+
+    <div class="container">
+      <div class="row">  
+        <div class="col-12">
+          <div class="d-flex align-items-center section-title justify-content-between">
+            <h2 class="mb-0 text-nowrap mr-3">{{ eventsMainHeader_items.title }}</h2>
+            <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+            <div>
+              <a href="{{ eventsMainHeader_items.button_url }}" class="btn btn-sm btn-outline-primary ml-sm-3 d-none d-sm-block">{{ eventsMainHeader_items.button_text }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row justify-content-center">
+    <!-- event -->
+    {% for eventsMain_item in eventsMain_items %}
+    {% if forloop.counter <= 3 %}
+    <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+      <div class="card border-0 rounded-0 hover-shadow">
+        <div class="card-img position-relative">
+          <img class="card-img-top rounded-0" src="{{ eventsMain_item.image.url }}" alt="event thumb" style="height: 200px; width: 100%;">
+          <div class="card-date"><span>{{ eventsMain_item.date.day }}</span><br>{{ eventsMain_item.date|date:"F" }} {{ eventsMain_item.date|date:"Y" }}</div>
+        </div>
+        <div class="card-body">
+          <!-- location -->
+          <p><i class="ti-location-pin text-primary mr-2"></i>{{ eventsMain_item.location }}</p>
+          <a href="{% url 'event-single' eventsMain_item.id %}"><h4 class="card-title">{{ eventsMain_item.title }}</h4></a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+      <!-- mobile see all button -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <a href="{{ eventsMainHeader_items.button_url }}" class="btn btn-sm btn-outline-primary d-sm-none d-inline-block">{{ eventsMainHeader_items.button_text }}</a>
+        </div>
+      </div>
+    </div>
+  

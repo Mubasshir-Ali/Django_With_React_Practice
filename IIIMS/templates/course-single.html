@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ courseMainHeader_items.button_url }}">{{ courseMainHeader_items.title }}</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">{{ courseMain.title }}</li> 
+        </ul>
+        <p class="text-lighten mb-0">{{ courseMain.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- section -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <!-- course thumb -->
+        <img src="{{ courseMain.image.url }}" class="img-fluid w-100" style="height: 400px; width: 100%;object-fit: cover">
+      </div>
+    </div>
+    <!-- course info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+        <h2>{{ courseMain.title }}</h2>
+      </div>
+      <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+        <ul class="list-inline text-xl-center">
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-book text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">{{ courseMain.category_title }}</h6>
+                <p class="mb-0">{{ courseMain.category }}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">{{ courseMain.duration_title }}</h6>
+                <p class="mb-0">{{ courseMain.duration }}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-wallet text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">{{ courseMain.fees_title }}</h6>
+                <p class="mb-0">Rs: {{ courseMain.fees }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-3 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+        <a href="{% url 'admission' %}" class="btn btn-primary">{{ courseMain.apply_text }}</a>
+      </div>
+      <!-- border -->
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+    <!-- course details -->
+    <div class="row">
+      <div class="col-12 mb-4 align-text-equal" >
+        <h3>{{ courseMain.about_course_title }}</h3>
+        <p>{{ courseMain.about_course }}</p>
+      </div>
+      <div class="col-12 mb-4 align-text-equal">
+        <h3>{{ courseMain.scope_title }}</h3>
+        <p>{{ courseMain.scope_details }}</p>
+      </div>
+      <div class="col-12 mb-4 align-text-equal">
+        <h3>{{ courseMain.opportunity_title }}</h3>
+        <p>{{ courseMain.opportunity_details }}</p>
+      </div>
+      <div class="col-12 mb-4 align-text-equal">
+        <h3>{{ courseMain.career_prospects_title }}</h3>
+        <p>{{ courseMain.career_prospects_details }}</p>
+      </div>
+      <div class="col-12 mb-4">
+        <h3 class="mb-3">{{ courseMain.requirements_title }}</h3>
+        <div class="col-12 px-0">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-styled">
+                <li> {{ courseMain.requirements_details }}</li>
+                {% comment %} <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li> {% endcomment %}
+              </ul>
+            </div>
+            {% comment %} <div class="col-md-6">
+              <ul class="list-styled">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+              </ul>
+            </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mb-4">
+        <h3 class="mb-3">{{ courseMain.how_to_apply_title }}</h3>
+        <ul class="list-styled">
+          {% for item in howToApplyList %}
+          <li>{{ item }}</li>
+          {% endfor %}  
+          {% comment %} <li>Visit in Institute</li> {% endcomment %}
+      </div>
+      {% comment %} <div class="col-12 mb-5">
+        <h3>Fees and Funding</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+          anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+          laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+          consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+          ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
+          labore et dolore magnam aliquam quaerat voluptatem.</p>
+      </div> {% endcomment %}
+    </div>
+  </div>
+</section>
+<!-- /section -->
+{% endblock %} 

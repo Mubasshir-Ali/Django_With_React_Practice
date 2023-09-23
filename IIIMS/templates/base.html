@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <!-- Basic Page Needs
+	================================================== -->
+  <meta charset="utf-8">
+  <title>IIIMS</title>
+
+  <!-- Mobile Specific Metas 
+	================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Construction Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="IIIMS">
+  <meta name="generator" content="IIIMS">
+  
+  <!-- theme meta -->
+  <meta name="theme-name" content="IIIMS" />
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/slick/slick.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/themify-icons/themify-icons.css' %}">
+  <!-- animation css -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/animate/animate.css' %}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/aos/aos.css' %}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/venobox/venobox.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'assets/images/iiims-logo.png' %}" type="image/x-icon">
+
+</head>
+
+<body>
+  <!-- preloader start -->
+  <div class="preloader">
+    <img src="{% static 'assets/images/preloader.gif' %}" alt="preloader">
+  </div>
+  <!-- preloader end -->
+  <!-- header -->
+<header class="fixed-top header">
+  {% include 'header.html' %} 
+</header>
+<!-- /header -->
+<!-- Main content -->
+{% block content %}
+{% endblock %}
+<!-- footer -->
+
+<footer>
+  {% include 'footer.html' %}
+</footer>
+<!-- /footer -->
+<!-- jQuery -->
+<script src="{% static 'assets/plugins/jQuery/jquery.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'assets/plugins/bootstrap/bootstrap.min.js' %}"></script>
+<!-- slick slider -->
+<script src="{% static 'assets/plugins/slick/slick.min.js' %}"></script>
+<!-- aos -->
+<script src="{% static 'assets/plugins/aos/aos.js' %}"></script>
+<!-- venobox popup -->
+<script src="{% static 'assets/plugins/venobox/venobox.min.js' %}"></script>
+<!-- filter -->
+<script src="{% static 'assets/plugins/filterizr/jquery.filterizr.min.js' %}"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+<script src="{% static 'assets/plugins/google-map/gmap.js' %}"></script>
+
+<!-- Main Script -->
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>

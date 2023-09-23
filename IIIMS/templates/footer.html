@@ -1,0 +1,102 @@
+{% load static %}
+
+    <!-- newsletter --> 
+    {% comment %} <div class="newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+            <h3 class="text-white">Subscribe Now</h3>
+            <form action="#">
+              <div class="input-wrapper">
+                <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+                <button type="submit" value="send" class="btn btn-primary">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+    <!-- footer content -->
+    <div class="footer bg-footer section border-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-sm-8 mb-5 mb-lg-0">
+            <!-- logo -->
+            <a class="logo-footer" href="{% url 'index' %}"><img width="20%" class="img-fluid mb-4" src="{{ iiims_logo.image.url }}" alt="logo"></a>
+            <ul class="list-unstyled">
+              <li class="mb-2">{{ footer_contact_info.address }}</li>
+              <li class="mb-2">{{ footer_contact_info.phone_number_1 }}</li>
+              <li class="mb-2">{{ footer_contact_info.phone_number_2 }}</li>
+              <li class="mb-2">{{ footer_contact_info.phone_number_3 }}</li>
+              <li class="mb-2">{{ footer_contact_info.email }}</li>
+            </ul>
+          </div>
+          <!-- company -->
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+            <h4 class="text-white mb-5">{{ footer_links_one.title }}</h4>
+            <ul class="list-unstyled">
+              {% comment %} {% for footerlinksone in footerlinks_one %} {% endcomment %}
+              <li class="mb-3"><a class="text-color" href="{% url 'about' %}">About Us</a></li>
+              <li class="mb-3"><a class="text-color" href="{% url 'staff' %}">Our Staff</a></li>
+              <li class="mb-3"><a class="text-color" href="{% url 'contact' %}">Contact</a></li>
+              {% comment %} {% endfor %} {% endcomment %}
+            </ul>
+          </div>
+          <!-- links -->
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+            <h4 class="text-white mb-5">{{ footer_links_two.title }}</h4>
+            <ul class="list-unstyled">
+              {% comment %} {% for footerlinkstwo in footerlinks_two %} {% endcomment %}
+              <li class="mb-3"><a class="text-color" href="{% url 'courses' %}">Courses</a></li>
+              <li class="mb-3"><a class="text-color" href="{% url 'events' %}">Events</a></li>
+              <li class="mb-3"><a class="text-color" href="{% url 'notice' %}">Notice</a></li>
+              {% comment %} {% endfor %} {% endcomment %}
+            </ul>
+          </div>
+          <!-- support -->
+          {% comment %} <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+            <h4 class="text-white mb-5">SUPPORT</h4>
+            <ul class="list-unstyled">
+              <li class="mb-3"><a class="text-color" href="">Forums</a></li>
+              <li class="mb-3"><a class="text-color" href="">Documentation</a></li>
+              <li class="mb-3"><a class="text-color" href="#!">Language</a></li>
+              <li class="mb-3"><a class="text-color" href="#!">Release Status</a></li>
+            </ul>
+          </div> {% endcomment %}
+          <!-- support -->
+          {% comment %} <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0 ">
+            <h4 class="text-white mb-5">RECOMMEND</h4>
+            <ul class="list-unstyled">
+              <li class="mb-3"><a class="text-color" href="">WordPress</a></li>
+              <li class="mb-3"><a class="text-color" href="">LearnPress</a></li>
+              <li class="mb-3"><a class="text-color" href="">WooCommerce</a></li>
+              <li class="mb-3"><a class="text-color" href="">bbPress</a></li>
+            </ul>
+          </div> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <!-- copyright -->
+    <div class="copyright py-4 bg-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-7 text-sm-left text-center">
+            <p class="mb-0">{{ copyrightInfo.title }} &copy;
+              <script>
+                var CurrentYear = new Date().getFullYear()
+                document.write(CurrentYear)
+              </script> 
+              {{ copyrightInfo.description }} <a href="" class="text-muted"> {{ copyrightInfo.name }}</a>
+            </p>
+          </div>
+          <div class="col-sm-5 text-sm-right text-center">
+            <ul class="list-inline">
+              {% for copyright_Info_icon in copyrightInfo_icon %}
+              <li class="list-inline-item"><a class="d-inline-block p-2" href=""><i class="{{ copyright_Info_icon.icon_class }} text-primary"></i></a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  

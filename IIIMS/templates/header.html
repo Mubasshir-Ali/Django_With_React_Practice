@@ -1,0 +1,95 @@
+{% load static %}
+
+    <!-- top header -->
+    <div class="top-header py-2 bg-white">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-4 text-center text-lg-left">
+            <a class="text-color mr-3" href="{{ top_header.url }}"><strong>{{ top_header.label }}</strong>{{ top_header.text }}</a>
+            {% for top_header_item in top_header_items %}
+            <ul class="list-inline d-inline">
+              <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href=""><i class="{{ top_header_item.icon_class }}"></i></a></li>
+            </ul>
+            {% endfor %}
+          </div>
+          {% comment %} <div style="font-family: 'ArabicFont', sans-serif; direction: rtl;">{{ bismillah }}</div> {% endcomment %}
+          <div class="col-lg-8 text-center text-lg-right">
+            <ul class="list-inline">
+              {% for top_header_nav in top_header_navigation %}
+              <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{{ top_header_nav.url }}">{{ top_header_nav.label }}</a></li>
+              {% endfor %}
+              {% comment %} <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a></li>
+              <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#signupModal" data-toggle="modal" data-target="#signupModal">Register</a></li> {% endcomment %}
+              <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{% url 'signin' %}" data-toggle="modal" data-target="">Login</a></li>
+              {% comment %} <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#signupModal" data-toggle="modal" data-target="#signupModal">Register</a></li> {% endcomment %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- navbar -->
+    <div class="navigation w-100">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark p-0">
+          <a class="navbar-brand" href="{% url 'index' %}"><img width="17%" src="{{ iiims_logo.image.url }}" alt="logo"></a>
+          <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto text-center">
+              {% comment %} {% for header_nav in header_navigation %} {% endcomment %}
+              <li class="nav-item active">
+                {% comment %} <a class="nav-link" href="{{ header_nav.url }}">{{ header_nav.label }}</a> {% endcomment %}
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item @@courses">
+                <a class="nav-link" href="{% url 'courses' %}">Courses</a>
+              </li>
+              <li class="nav-item @@about">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item @@events">
+                <a class="nav-link" href="{% url 'events' %}">Events</a>
+              </li>
+              <li class="nav-item @@blog">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+              {% comment %} <li class="nav-item dropdown view">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Pages
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'teacher'%}">Teacher</a></li>
+                  <li><a class="dropdown-item" href="{% url 'teacher-single'%}">Teacher Single</a></li>
+                  <li><a class="dropdown-item" href="{% url 'notice'%}">Notice</a></li>
+                  <li><a class="dropdown-item" href="{% url 'notice-single'%}">Notice Details</a></li>
+                  <li><a class="dropdown-item" href="{% url 'research'%}">Research</a></li>
+                  <li><a class="dropdown-item" href="{% url 'course-single'%}">Course Details</a></li>
+                  <li><a class="dropdown-item" href="{% url 'event-single'%}">Event Details</a></li>
+                  <li><a class="dropdown-item" href="{% url 'blog-single'%}">Blog Details</a></li>
+                  
+                  <li class="dropdown-item dropdown dropleft">
+                    <a class="dropdown-toggle" href="#" id="navbarDropdownSubmenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Sub Menu
+                    </a>
+                    <ul class="dropdown-menu dropdown-submenu" aria-labelledby="navbarDropdownSubmenu">
+                      <li><a class="dropdown-item" href="#!">Sub Menu 01</a></li>
+                      <li><a class="dropdown-item" href="#!">Sub Menu 02</a></li>
+                      <li><a class="dropdown-item" href="#!">Sub Menu 03</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li> {% endcomment %}
+              {% comment %} <li class="nav-item @@contact">
+                <a class="nav-link" href="{{ header_nav.url }}">{{ header_nav.label }}</a>
+              </li> {% endcomment %}
+              {% comment %} {% endfor %} {% endcomment %}
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    
+  

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ eventsMainHeader_items.button_url }}">Upcoming Events</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">Event Details</li>
+        </ul>
+        <p class="text-lighten mb-0"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- event single -->
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">{{ eventsMain.title }}</h2>
+      </div>
+      <!-- event image -->
+      <div class="col-12 mb-4">
+        <img src="{{ eventsMain.image.url }}" alt="event thumb" class="img-fluid w-100" style="height: 200px; width: 100%;">
+      </div>
+    </div>
+    <!-- event info -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-9">
+        <ul class="list-inline">
+          <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-location-pin text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">LOCATION</h6>
+                <p class="mb-0">{{ eventsMain.location }}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-calendar text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">DATE</h6>
+                <p class="mb-0"><span>{{ eventsMain.date.day }}</span> {{ eventsMain.date|date:"F" }} {{ eventsMain.date|date:"Y" }}</p>
+              </div>
+            </div>
+          </li>
+          {% comment %} <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-time text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">TIME</h6>
+                <p class="mb-0">04: 00 pm</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-xl-5 mr-4 mb-3 mb-lg-0">
+            <div class="d-flex align-items-center">
+              <i class="ti-wallet text-primary icon-md mr-2"></i>
+              <div class="text-left">
+                <h6 class="mb-0">ENTRY FEE</h6>
+                <p class="mb-0">From: $699</p>
+              </div>
+            </div>
+          </li> {% endcomment %}
+        </ul>
+      </div>
+      <div class="col-lg-3 text-lg-right text-left">
+        {% comment %} <a href="{% url 'event-single' eventsMain.id%}" class="btn btn-primary">Apply now</a> {% endcomment %}
+      </div>
+      <!-- border -->
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+    <!-- event details -->
+    <div class="row">
+      <div class="col-12 mb-50">
+        <h3>About Event</h3>
+        <p>{{ eventsMain.about_event }}</p>
+      </div>
+    </div>
+</section>
+<!-- /event single -->
+{% endblock %}

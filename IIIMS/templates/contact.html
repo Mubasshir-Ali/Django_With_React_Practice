@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Modal -->
+{% include 'model.html' %}
+<!-- /Modal --> 
+{% include 'successmodel.html' %}
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ header_nav_home.url }}">{{ header_nav_home.label }}</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">Contact Us</li>
+        </ul>
+        <p class="text-lighten mb-0"></p>
+      </div>
+    </div>
+  </div> 
+</section>
+<!-- /page title -->
+
+<!-- contact -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="section-title">Contact Us</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <form id="myForm" action="{% url 'saveonlinequeryform' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Your Name" required>
+          <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Your Email" required>
+          <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Subject" required>
+          <textarea name="message" id="message" class="form-control mb-3" placeholder="Your Message" required></textarea>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
+            <label class="form-check-label" for="termsCheck">
+              I agree to the <a href="#">Terms and Conditions</a>
+            </label>
+          </div>
+          <button type="submit" value="send" id="submitBtn" class="btn btn-primary">SEND MESSAGE</button>
+        </form>
+        {% comment %} <div id="successMessage" class="mt-3" style="display: none;">
+          <div class="alert alert-success" role="alert">
+            Your message has been sent successfully!
+          </div>
+        </div> {% endcomment %}
+      </div>
+      <div class="col-lg-5">
+        <a href="tel:{{ footer_contact_info.phone_number_1 }}" class="text-color h5 d-block">{{ footer_contact_info.phone_number_1 }}</a>
+        <a href="tel:{{ footer_contact_info.phone_number_2 }}" class="text-color h5 d-block">{{ footer_contact_info.phone_number_2 }}</a>
+        <a href="tel:{{ footer_contact_info.phone_number_3 }}" class="text-color h5 d-block">{{ footer_contact_info.phone_number_3 }}</a>
+        <a href="mailto:yourmail@email.com" class="mb-5 text-color h5 d-block">{{ footer_contact_info.email }}</a>
+        <p>{{ footer_contact_info.address }}</p>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<!-- /contact -->
+
+<!-- gmap -->
+{% comment %} <section class="section pt-0">
+  <!-- Google Map -->
+  <div id="map_canvas" data-latitude="31.4699" data-longitude="73.0711"></div>
+</section> {% endcomment %}
+<!-- /gmap -->
+
+{% comment %} <script>
+  // Listen for form submission
+  document.querySelector('form').addEventListener('submit', function(e) {
+    // Prevent the form from submitting
+    e.preventDefault();
+
+    // Show the success message
+    document.getElementById('successMessage').style.display = 'block';
+    
+    // Optionally, you can reset the form after showing the success message
+    this.reset();
+  });
+</script> {% endcomment %}
+{% endblock %}

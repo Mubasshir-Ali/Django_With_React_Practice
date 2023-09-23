@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ header_nav_home.url }}">{{ header_nav_home.label }}</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">{{ staffHeader.title }}</li>
+        </ul>
+        <p class="text-lighten mb-0">{{ staffHeader.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- Staff -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Staff category list --> 
+        <ul class="list-inline text-center filter-controls mb-5"> 
+          {% for staff_categorie in staff_categories %}
+          <li class="list-inline-item m-3 text-uppercase active" data-filter="{{ staff_categorie.category }}">{{ staff_categorie.category }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <!-- Staff list -->
+    <div class="row filtr-container">
+      <!-- Staff -->
+      {% for staffMain_item in staffMain_items %}
+        <div data-category="{{ staffMain_item.designation }}" class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+          <div class="card border-0 rounded-0 hover-shadow">
+            <img class="card-img-top rounded-0" src="{{ staffMain_item.image.url }}" alt="staff">
+            <div class="card-body">
+              {% comment %} <a href="{% url 'staff-single' %}"> {% endcomment %}
+              <a href="{{ staffMain_item.button_url }}">
+                <h4 class="card-title">{{ staffMain_item.name }}</h4>
+              </a>
+              <p>{{ staffMain_item.designation }}</p>
+              <ul class="list-inline">
+                {% if staffMain_item.facebook_link %}
+                <li class="list-inline-item"><a class="text-color" href=""><i class="{{ staffMain_item.icon_facebook }}"></i></a></li>
+                {% endif %}
+                {% if staffMain_item.twitter_link %}
+                <li class="list-inline-item"><a class="text-color" href=""><i class="{{ staffMain_item.icon_twitter }}"></i></a></li>
+                {% endif %}
+                {% if staffMain_item.instagram_link  %}
+                <li class="list-inline-item"><a class="text-color" href=""><i class="{{ staffMain_item.icon_instagram }}"></i></a></li>
+                {% endif %}
+                {% if staffMain_item.linkedin_link %}
+                <li class="list-inline-item"><a class="text-color" href=""><i class="{{ staffMain_item.icon_linkedin }}"></i></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% comment %} <!-- teacher -->
+      <div data-category="bio-science" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-2.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Clark Malik</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="business-study" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-3.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">John Doe</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="bio-science, science arts" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-1.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Alex Rook</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="law" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-2.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Din Martin</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="science" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-3.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Raka Jim</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="bio-science" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-1.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Devid Luis</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="pharmacy, social-science, arts" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-2.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Zim Cook</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- teacher -->
+      <div data-category="business-study" class="col-lg-4 col-sm-6 mb-5 filtr-item">
+        <div class="card border-0 rounded-0 hover-shadow">
+          <img class="card-img-top rounded-0" src="{% static 'assets/images/teachers/teacher-3.jpg' %}" alt="teacher">
+          <div class="card-body">
+            <a href="{% url 'staff-single'%}">
+              <h4 class="card-title">Duis Riu</h4>
+            </a>
+            <p>Teacher</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-google"></i></a></li>
+              <li class="list-inline-item"><a class="text-color" href=""><i class="ti-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div> {% endcomment %}
+    </div>
+  </div>
+</section>
+<!-- /teachers -->
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ staffMain_title.button_url }}">{{ staffMain_title.title }}</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">{{ staffMain.name }}</li>
+        </ul>
+        <p class="text-lighten mb-0">{{ staffMain.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- teacher details -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-5">
+        <img class="img-fluid w-100" src="{{ staffMain.image.url }}" alt="staff">
+      </div>
+      <div class="col-md-6 mb-5">
+        <h3>{{ staffMain.name }}</h3>
+        <h6 class="text-color">{{ staffMain.specialization }}</h6>
+        <p class="mb-5">{{ staffMain.description }}</p>
+        <div class="row">
+          <div class="col-md-6 mb-5 mb-md-0">
+            <h4 class="mb-4">CONTACT INFO:</h4>
+            <ul class="list-unstyled">
+              <li class="mb-3"><a class="text-color" href="mailto:{{ staffMain.contact_email }}"><i class="ti-email mr-2"></i>{{ staffMain.contact_email }}</a></li>
+              <li class="mb-3"><a class="text-color" href="tel:{{ staffMain.contact_phone }}"><i class="ti-mobile mr-2"></i>{{ staffMain.contact_phone }}</a></li>
+              <li class="mb-3"><a class="text-color" href=""><i class="ti-facebook mr-2"></i>{{ staffMain.contact_phone }}</a></li>
+              <li class="mb-3"><a class="text-color" href=""><i class="{{ staffMain.icon_twitter }} mr-2"></i>{{ staffMain.name }}</a></li>
+              <li class="mb-3"><a class="text-color" href=""><i class="{{ staffMain.icon_instagram }} mr-2"></i>{{ staffMain.name }}</a></li>
+              <li class="mb-3"><a class="text-color" href=""><i class="{{ staffMain.icon_linkedin }} mr-2"></i>{{ staffMain.name }}</a></li>
+              {% comment %} <li class="mb-3"><a class="text-color" href="http://maps.google.com/"><i class="ti-location-pin mr-2"></i>1313 Boulevard
+                  Cremazie,Quebec</a></li> {% endcomment %}
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h4 class="mb-4">{{ activities.title }}</h4>
+            <ul class="list-unstyled">
+              {% for activity in activities %}
+              <li class="mb-3">{{ activity.activity }}</li>
+              {% endfor %}
+              {% comment %} <li class="mb-3">Computer Security</li>
+              <li class="mb-3">Human Computer Interfacing</li> {% endcomment %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <h4 class="mb-4">{{ staffMain.biography_title }}</h4>
+        <p class="mb-5">{{ staffMain.biography_details }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /teacher details -->
+{% endblock %}

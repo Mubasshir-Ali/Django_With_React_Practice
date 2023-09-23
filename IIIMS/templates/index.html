@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Modal -->
+{% include 'model.html' %}
+<!-- /Modal --> 
+
+<!-- hero slider -->
+<section class="hero-section overlay bg-cover" data-background="{{ slider_image.image.url }}">
+    <div class="container">
+        {% include 'slider.html' %}
+    </div>
+</section>
+<!-- /hero slider -->
+
+<!-- banner-feature -->
+{% comment %} <section class="bg-gray overflow-md-hidden">
+    <div class="container-fluid p-0">
+        {% include 'banner.html' %}
+    </div>
+</section> {% endcomment %}
+<!-- /banner-feature -->
+<!-- about us -->
+<section class="section">
+    <div class="container">
+        {% include 'about-us.html' %}
+    </div>
+</section>
+<!-- /about us -->
+<!-- courses -->
+<section class="section-sm">
+    {% include 'course-list.html' %}
+</section>
+<!-- /courses -->
+<!-- cta -->
+{% comment %} <section class="section bg-primary">
+    <div class="container">
+        {% include 'cta.html' %}
+    </div>
+</section> {% endcomment %}
+<!-- /cta -->
+<!-- success story -->
+{% comment %} <section class="section bg-cover" data-background="{% static 'assets/images/backgrounds/success-story.jpg' %}">
+    <div class="container">
+        {% include 'success-story.html' %}
+    </div>
+</section> {% endcomment %}
+<!-- /success story -->
+<!-- events -->
+<section class="section bg-gray">
+  {% include 'events-main.html' %}
+</section>
+<!-- /events -->
+<!-- teachers -->
+<section class="section">
+  <div class="container">
+    {% include 'staff-main.html' %}
+  </div>
+</section>
+<!-- /teachers -->
+<!-- blog -->
+{% comment %} <section class="section pt-0">
+  {% include 'blog-main.html' %}
+</section> {% endcomment %}
+<!-- /blog -->
+
+{% endblock %}

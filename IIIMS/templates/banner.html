@@ -1,0 +1,19 @@
+{% load static %}
+ 
+      <div class="row no-gutters">
+        <div class="col-xl-4 col-lg-5 align-self-end">
+          <img class="img-fluid w-100" src="{{ banner_image.image.url }}" alt="banner image">
+        </div>
+        <div class="col-xl-8 col-lg-7">
+          <div class="row feature-blocks bg-gray justify-content-between">
+            {% for banner_item in banner_items %}
+            <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+              <i class="{{ banner_item.icon_class }} mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+              <h3 class="mb-xl-4 mb-lg-3 mb-4">{{ banner_item.title }}</h3>
+              <p>{{ banner_item.description }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    

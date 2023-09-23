@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <ul class="list-inline custom-breadcrumb mb-2">
+            <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ header_nav_home.url }}">{{ header_nav_home.label }}</a></li>
+            <li class="list-inline-item text-white h3 font-secondary nasted">Admission Form</li>
+          </ul>
+          <p class="text-lighten mb-0"></p>
+        </div>
+      </div>
+    </div> 
+  </section>
+  <!-- /page title -->
+<!-- admission -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mb-4 mb-lg-0 mx-auto">
+        <h2 class="section-title">Admission Form</h2>
+        <div id="admissionFormContainer">
+          <form id="admissionForm" action="{% url 'saveadmissionform' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="col-lg-6">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control mb-3" id="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="col-lg-6">
+            <label for="phone">Phone:</label>
+            <input type="integer" class="form-control mb-3" id="phone" name="phone" placeholder="Phone Number" required>
+          </div>
+          <div class="col-lg-6">
+            <label for="cnic">CNIC:</label>
+            <input type="integer" class="form-control mb-3" id="cnic" name="cnic" placeholder="CNIC Number" required>
+          </div>
+            <div class="col-lg-6">
+            <label for="total_marks">Total Marks:</label>
+            <input type="integer" class="form-control mb-3" id="total_marks" name="total_marks" placeholder="Add Intermediate Total Marks" required>
+          </div>
+            <div class="col-lg-6">
+            <label for="obtained_marks">Obtained Marks:</label>
+            <input type="integer" class="form-control mb-3" id="obtained_marks" name="obtained_marks" placeholder="Add Intermediate Obtained Marks" required>
+          </div>
+            <label style="display: none;" for="obtained_marks">Percentage:</label>
+            <input type="integer" class="form-control mb-3" id="percentage" name="percentage" placeholder="Obtained Percentage" style="display: none;">
+            <div class="col-lg-6">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control mb-3" id="address" name="address" placeholder="Address">
+          </div>
+            <div class="col-lg-6">
+            <label for="gender">Gender:</label>
+            <select class="form-control mb-3" id="gender" name="gender" required>
+              <option value="male">Male</option>
+              <option value="male">Feemale</option>
+              <option value="male">Others</option>
+            </select>
+          </div>
+            <div class="col-lg-12">
+            <label for="course">Course:</label>
+            <select class="form-control mb-3" id="course" name="course" required>
+              {% for course in courses %}
+              <option value="{{ course.id }}">{{ course.title }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-lg-12">
+            <label for="message">Message:</label>
+            <textarea name="message" id="message" class="form-control mb-3" placeholder="Your Message"></textarea>
+          </div>
+          <div class="col-lg-6">
+            <label for="picture">Picture:</label>
+            <input type="file" id="picture" name="picture" accept="image/*">
+          </div>
+            <div class="col-lg-6">
+            <input type="file" id="certificate" name="certificate" accept="certificate/*">
+            <label for="degreepicture" class="mt-1">Upload Intermediate Certificate:</label>
+          </div>
+          <div class="col-lg-12">
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
+              <label class="form-check-label" for="termsCheck">
+                I agree to the <a href="#">Terms and Conditions</a>
+              </label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <button type="submit" value="send" id="submitBtn" class="btn btn-primary">SUBMIT</button>
+          </div>
+          </div>
+          </form>
+          <div id="successMessage" class="mt-3" style="display: none;">
+            <div class="alert alert-success" role="alert">
+              Your message has been sent successfully!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /admission -->
+
+{% endblock %}

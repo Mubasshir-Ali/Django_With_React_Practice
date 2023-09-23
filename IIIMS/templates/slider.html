@@ -1,0 +1,17 @@
+{% load static %}
+      
+      <div class="hero-slider">
+        <!-- slider item -->
+        {% for slider_item in slider_items %}
+        <div class="hero-slider-item">
+          <div class="row">
+            <div class="col-md-8"> 
+              <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">{{ slider_item.title }}</h1>
+              <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">{{ slider_item.description }}</p>
+              <a href="{{ slider_item.button_url }}" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">{{ slider_item.button_text }}</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    

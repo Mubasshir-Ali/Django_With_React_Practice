@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{{ slider_image.image.url }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="{{ header_nav_home.url }}">{{ header_nav_home.label }}</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">{{ eventsMainHeader_items.title }}</li>
+        </ul>
+        <p class="text-lighten mb-0">{{ eventsMainHeader_items.descriptions }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <!-- event --> 
+      {% for eventsMain_item in eventsMain_items %}
+        <div class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+          <div class="card border-0 rounded-0 hover-shadow">
+            <div class="card-img position-relative">
+              <img class="card-img-top rounded-0" src="{{ eventsMain_item.image.url }}" alt="event thumb" style="height: 200px; width: 100%;">
+              <div class="card-date"><span>{{ eventsMain_item.date.day }}</span><br>{{ eventsMain_item.date|date:"F" }} {{ eventsMain_item.date|date:"Y" }}</div>
+            </div>
+            <div class="card-body">
+              <!-- location -->
+              <p><i class="ti-location-pin text-primary mr-2"></i>{{ eventsMain_item.location }}</p>
+              <a href="{% url 'event-single' eventsMain_item.id %}"><h4 class="card-title">{{ eventsMain_item.title }}</h4></a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- /courses -->
+{% endblock %}
