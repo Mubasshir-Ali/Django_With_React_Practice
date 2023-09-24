@@ -1,6 +1,6 @@
 from django.core.mail import EmailMessage
 import os
-from gunicorn import util
+# from gunicorn import util
 import msvcrt
 
 class Util:
